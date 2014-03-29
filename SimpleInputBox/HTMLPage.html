@@ -4,10 +4,15 @@
     <head>
         <meta charset="utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular.min.js"></script>
+        <script src="Script.js"></script>
         <title>Simple Input Box</title>
     </head>
     <body>
-        <input type="text" class="game" ng-model="gameName">
-        <div class="game-list">{{gameName}}</div>
+        <div class="container" ng-controller="gameList">
+            <input type="text" class="game" ng-model="gameName">
+            <ol>
+                <li ng-repeat="game in games"><span>{{game.name}}</span></li>
+            </ol>
+        </div><!--container-->
     </body>
 </html>
