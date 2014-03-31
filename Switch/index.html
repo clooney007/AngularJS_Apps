@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-example47-production</title>
+  <link href="animations.css" rel="stylesheet" type="text/css">
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular-animate.js"></script>
+  <script src="script.js"></script>
+  
+
+  
+</head>
+<body ng-app="ngAnimate">
+  <!-- <div ng-controller="Ctrl">
+    <select ng-model="selection" ng-options="item for item in items">
+    </select>
+    <tt>selection={{selection}}</tt>
+    <hr/>
+    <div class="animate-switch-container"
+      ng-switch on="selection">
+        <div class="animate-switch" ng-switch-when="settings">Settings Div</div>
+        <div class="animate-switch" ng-switch-when="home">Home Span</div>
+        <div class="animate-switch" ng-switch-default>default</div>
+    </div>
+  </div> -->
+  
+  
+  
+  <div ng-controller="switchCtr">
+  	<select ng-model="selection" ng-options="level for level in levels"></select>
+  	<span ng-bind="selection"></span>
+  	
+  	<div ng-switch on="selection">
+  		<div ng-switch-when="admin">You are a Admin.</div>
+  		<div ng-switch-when="member">You are a Member.</div>
+  		<div ng-switch-default>You are a Visitor.</div>
+  	</div>
+  </div>
+</body>
+</html>

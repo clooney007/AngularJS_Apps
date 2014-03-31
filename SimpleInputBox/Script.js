@@ -10,22 +10,30 @@ function gameList($scope){
 
     //Add new game to $scope.games list
         $scope.AddGame = function () {
-            //check if the game is already in the list
-            var exist = false;
+            var add = true;
+            var error = "";
 
+            //check if the input is empty
+            if ($scope.gameName == null) {
+                add = false;
+                error = "Enter a game name!";
+            }
+
+            //check if the game is already in the list
             for (var i = 0, len = $scope.games.length; i < len; i++) {
                 if ($scope.gameName === $scope.games[i].name) {
-                    exist = true;
+                    add = false;
+                    error = "This game is already in the list!";
                 }
             }
 
-            if (exist) {
-                //alert if game exist
-                alert("This game is already in the list!");
-            } else {
+            if (add) {
                 //add the game, if game is not exist
                 $scope.games.unshift({ name: $scope.gameName, rate: 3 });
                 $scope.gameName = "";
+            } else {
+                //alert error
+                alert(error);
             }
         };
 }
